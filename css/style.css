@@ -1,0 +1,642 @@
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2019;
+}
+
+@media (min-width: 576px) {
+    .navbar {
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+}
+
+.navbar {
+    background-color:white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    display: block;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.navbar ul,
+.navbar li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+.navbar ul a {
+    display: block;
+    text-decoration: none;
+}
+
+
+/* navbar for mobile */
+
+.navbar .navbar-toggler {
+    display: none;
+    --navbar-toggler-color: #604a66;
+}
+
+.navbar-mobile .navbar-toggler {
+    display: block;
+    font-size: 8px;
+    /* інші величини EM вираховуються з 8рх */
+    background-color: transparent;
+    border: 0;
+    border-bottom: 0.25em solid var(--navbar-toggler-color);
+    border-top: 0.25em solid var(--navbar-toggler-color);
+    min-height: 1.5em;
+    margin: 1em 2em;
+    outline: 0;
+    position: relative;
+    transition: border-color 150ms ease-out, transform 150ms ease-out;
+    width: 2.25em;
+    z-index: 9001;
+}
+
+.navbar-mobile .navbar-toggler::after,
+.navbar-mobile .navbar-toggler::before {
+    border-bottom: 0.25em solid var(--navbar-toggler-color);
+    bottom: .375em;
+    content: '';
+    height: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    transition: color 100ms ease, transform 200ms ease-out;
+}
+
+.navbar-mobile .navbar-toggler span {
+    color: transparent;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    position: absolute;
+}
+
+.navbar-open .navbar-toggler {
+    border-color: transparent;
+    transform: rotateZ(90deg);
+}
+
+.navbar-open .navbar-toggler::after,
+.navbar-open .navbar-toggler::before {
+    transition: transform 200ms ease-out;
+}
+
+.navbar-open .navbar-toggler::after {
+    transform: rotateZ(45deg);
+}
+
+.navbar-open .navbar-toggler::before {
+    transform: rotateZ(-45deg);
+}
+
+/* customise navbar for mobile */
+.navbar-mobile {
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.navbar-mobile nav {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    max-height: 0px;
+    transition: max-height 0.3s;
+}
+
+.navbar-open nav {
+    max-height: 400px !important;
+}
+
+/* налаштувати вигляд navbar для desktop */
+
+.navbar-desktop ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-desktop ul a {
+    display: block;
+    padding: 1em 2em;
+    text-decoration: none;
+}
+
+.navbar-desktop ul .active a,
+.navbar-desktop ul a.active,
+.navbar-desktop ul a:hover {
+    color: red;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* налаштувати вигляд navbar для mobile */
+
+.navbar .logo {
+    padding: 1em 2em;
+}
+
+.navbar-mobile nav {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.navbar-mobile nav a {
+    display: block;
+    border-bottom: 1px solid #e6e6e6;
+    font-size: 18px;
+    line-height: 30px;
+    padding: 1em 2em;
+}
+
+.navbar-mobile nav li.active a,
+.navbar-mobile nav a.active,
+.navbar-mobile nav a:hover {
+    color: red;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+
+/*            
+    general styles -------------
+*/
+
+
+html,
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin-top: 0;
+}
+
+body {
+    margin: 0;
+}
+
+/* < 576px => 100% */
+.section {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.container, containerhome, whoson {
+    min-height: 100vh;
+}
+
+.container, containerhome, whoson {
+    border: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgray;
+
+}
+
+/* 540px */
+@media (min-width: 576px) {
+    .section  {
+        grid-template-columns: 1fr 540px 1fr;
+    }
+
+    .container, containerhome, whoson {
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+}
+
+/* 720px */
+@media (min-width: 768px) {
+    .section {
+        grid-template-columns: 1fr 720px 1fr;
+    }
+}
+
+/* 960px */
+@media (min-width: 992px) {
+    .section {
+        grid-template-columns: 1fr 960px 1fr;
+    }
+}
+
+/* 1140px */
+@media (min-width: 1200px) {
+    .section {
+        grid-template-columns: 1fr 1140px 1fr;
+    }
+}
+
+
+body > .section {
+    background-color: white;
+}
+
+body > .section:nth-child(2n) {
+    background-color: white;
+}
+
+body > .section:nth-child(3n) {
+    background-color: white;
+}
+
+body > .section:nth-child(4n) {
+    background-color: white;
+}
+
+.home.section {}
+
+.home.section .container {}
+
+.about.section {}
+
+.portfolio.section {}
+
+.contacts.section {}
+
+.gridportfolio {
+    display: grid;
+    grid-template-columns: 16.1921708185% 2.5504151839% 13.5824436536% 2.2538552788% 2.7876631079% 7.0581257414% 12.3368920522% 3.9739027284% 2.90628707% 20.1660735469% 16.1921708185%;
+    grid-template-rows: 39px 175px 253px 67px 46px 82px 50px 159px 21px 60px 125px 44px 408px 168px;
+}
+
+.containerportfolio {
+    grid-column-start: 2;
+    grid-column-end: 11;
+    grid-row-start: 1;
+    grid-row-end: 15;
+    background-color: lightgray;
+}
+
+.jpeg1 {
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 6;
+  z-index: 1;
+}
+
+.jpeg2 {
+    grid-column-start: 7;
+    grid-column-end: 10;
+    grid-row-start: 3;
+    grid-row-end: 8;
+    z-index: 2;
+}
+
+.jpeg3 {
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 7;
+    grid-row-end: 13;
+    z-index: 3;
+}
+
+.jpeg4 {
+    grid-column-start: 10;
+    grid-column-end: 11;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    z-index: 4;
+}
+
+.jpeg5 {
+    grid-column-start: 4;
+    grid-column-end: 8;
+    grid-row-start: 12;
+    grid-row-end: 15;
+    z-index: 5;
+}
+
+.jpeg6 {
+    grid-column-start: 9;
+    grid-column-end: 11;
+    grid-row-start: 10;
+    grid-row-end: 15;
+    z-index: 6;
+}
+
+.square {
+    grid-column-start: 4;
+    grid-column-end: 11;
+    grid-row-start: 4;
+    grid-row-end: 11;
+    z-index: 1;
+    background-color: darkblue;
+    font-family: sans-serif, akrobat;color: white;
+    font-size: 5em;
+    font-weight: 300;
+    text-align: center;
+    
+    
+
+}
+
+
+/* Make the container relative */
+.swap-on-hover {
+    display: grid;
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 6;
+z-index: 1;
+
+
+}
+
+/* Select the image and make it absolute to the container */
+.swap-on-hover img {
+    position: absolute;
+
+    overflow: hidden;
+    /* Sets the width and height for the images*/
+
+}
+
+/* 
+	We set z-index to be higher than the back image, so it's alwyas on the front.
+
+We give it an opacity leaner to .25s, that way when we hover we will get a nice fading effect. 
+*/
+.swap-on-hover .swap-on-hover__jpeg1-image {
+    z-index: 9999;
+    transition: opacity .5s linear;
+    cursor: pointer;
+}
+
+/* When we hover the figure element, the block with .swap-on-hover, we want to use > so the front-image is going to have opacity of 0, which means it will be hidden, to the back image will show */
+.swap-on-hover:hover > .swap-on-hover__jpeg1-image {
+    opacity: 0;
+}
+
+.swap-on-hover1 {
+    display: grid;
+    grid-column-start: 7;
+    grid-column-end: 10;
+    grid-row-start: 3;
+    grid-row-end: 8;
+    z-index: 2;
+
+
+
+}
+
+/* Select the image and make it absolute to the container */
+.swap-on-hover1 img {
+    position: absolute;
+
+    overflow: hidden;
+    /* Sets the width and height for the images*/
+
+}
+
+/* 
+	We set z-index to be higher than the back image, so it's alwyas on the front.
+
+We give it an opacity leaner to .25s, that way when we hover we will get a nice fading effect. 
+*/
+.swap-on-hover1 .swap-on-hover__jpeg2-image {
+    z-index: 9999;
+    transition: opacity .5s linear;
+    cursor: pointer;
+}
+
+/* When we hover the figure element, the block with .swap-on-hover, we want to use > so the front-image is going to have opacity of 0, which means it will be hidden, to the back image will show */
+.swap-on-hover1:hover > .swap-on-hover__jpeg2-image {
+    opacity: 0;
+}
+
+.swap-on-hover2 {
+    display: grid;
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 7;
+    grid-row-end: 13;
+    z-index: 4;
+
+}
+
+/* Select the image and make it absolute to the container */
+.swap-on-hover2 img {
+    position: absolute;
+
+    overflow: hidden;
+    /* Sets the width and height for the images*/
+
+}
+
+/* 
+	We set z-index to be higher than the back image, so it's alwyas on the front.
+
+We give it an opacity leaner to .25s, that way when we hover we will get a nice fading effect. 
+*/
+.swap-on-hover2 .swap-on-hover__jpeg3-image {
+    z-index: 9999;
+    transition: opacity .5s linear;
+    cursor: pointer;
+}
+
+/* When we hover the figure element, the block with .swap-on-hover, we want to use > so the front-image is going to have opacity of 0, which means it will be hidden, to the back image will show */
+.swap-on-hover2:hover > .swap-on-hover__jpeg3-image {
+    opacity: 0;
+}
+
+.swap-on-hover3 {
+    display: grid;
+    grid-column-start: 10;
+    grid-column-end: 11;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    z-index: 4;
+
+}
+
+/* Select the image and make it absolute to the container */
+.swap-on-hover3 img {
+    position: absolute;
+
+    overflow: hidden;
+    /* Sets the width and height for the images*/
+
+}
+
+/* 
+	We set z-index to be higher than the back image, so it's alwyas on the front.
+
+We give it an opacity leaner to .25s, that way when we hover we will get a nice fading effect. 
+*/
+.swap-on-hover3 .swap-on-hover__jpeg4-image {
+    z-index: 9999;
+    transition: opacity .5s linear;
+    cursor: pointer;
+}
+
+/* When we hover the figure element, the block with .swap-on-hover, we want to use > so the front-image is going to have opacity of 0, which means it will be hidden, to the back image will show */
+.swap-on-hover3:hover > .swap-on-hover__jpeg4-image {
+    opacity: 0;
+}
+
+.swap-on-hover4 {
+    display: grid;
+    grid-column-start: 4;
+    grid-column-end: 8;
+    grid-row-start: 12;
+    grid-row-end: 15;
+    z-index: 5;
+
+}
+
+/* Select the image and make it absolute to the container */
+.swap-on-hover4 img {
+    position: absolute;
+
+    overflow: hidden;
+    /* Sets the width and height for the images*/
+
+}
+
+/* 
+	We set z-index to be higher than the back image, so it's alwyas on the front.
+
+We give it an opacity leaner to .25s, that way when we hover we will get a nice fading effect. 
+*/
+.swap-on-hover4 .swap-on-hover__jpeg5-image {
+    z-index: 9999;
+    transition: opacity .5s linear;
+    cursor: pointer;
+}
+
+/* When we hover the figure element, the block with .swap-on-hover, we want to use > so the front-image is going to have opacity of 0, which means it will be hidden, to the back image will show */
+.swap-on-hover4:hover > .swap-on-hover__jpeg5-image {
+    opacity: 0;
+}
+
+.swap-on-hover5 {
+    display: grid;
+    grid-column-start: 9;
+    grid-column-end: 11;
+    grid-row-start: 10;
+    grid-row-end: 15;
+    z-index: 6;
+}
+
+/* Select the image and make it absolute to the container */
+.swap-on-hover5 img {
+    position: absolute;
+
+    overflow: hidden;
+    /* Sets the width and height for the images*/
+
+}
+
+/* 
+	We set z-index to be higher than the back image, so it's alwyas on the front.
+
+We give it an opacity leaner to .25s, that way when we hover we will get a nice fading effect. 
+*/
+.swap-on-hover5 .swap-on-hover__jpeg6-image {
+    z-index: 9999;
+    transition: opacity .5s linear;
+    cursor: pointer;
+}
+
+/* When we hover the figure element, the block with .swap-on-hover, we want to use > so the front-image is going to have opacity of 0, which means it will be hidden, to the back image will show */
+.swap-on-hover5:hover > .swap-on-hover__jpeg6-image {
+    opacity: 0;
+}
+
+.gridhome {
+    display: grid;
+    grid-template-columns: 16.1921708185% 22.5385527877% 22.5385527877% 22.5385527877% 16.1921708185%;
+    grid-template-rows: 91.2px 91.2px 91.2px 273.6px 273.6px 164px;
+}
+
+.containerhome {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 7;
+    background-color: white;
+ 
+    
+}
+.whoson
+{
+    display: grid;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 7;
+     font-size: 23vw;
+   letter-spacing:2vw;
+    text-align: center;
+    font-family:bodoni72c,serif;color:lightgray; 30px;
+    z-index: 3;
+}
+.slider {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    
+    
+}
+
+
+
+.gridabout {
+    display: grid;
+    grid-template-columns: 16.1921708185% 22.5385527877% 22.5385527877% 22.5385527877% 16.1921708185%;
+    grid-template-rows: 91.2px 91.2px 91.2px 273.6px 273.6px 164px;
+}
+
+.containerabout {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 7;
+    background-color: lightgray;
+
+}
+.brend
+{
+    display: grid;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+font-family: acrobat,sans-serif;color: black;
+    font-size:1vw;
+    text-align:left;
+    text-indent: 3%;
+    font-style: normal;
+    z-index: 4;
+}
+.gridcontacts {
+    display: grid;
+    grid-template-columns: 16.1921708185% 22.5385527877% 22.5385527877% 22.5385527877% 16.1921708185%;
+    grid-template-rows: 91.2px 91.2px 91.2px 273.6px 273.6px 164px;
+}
+
+.containercontacts {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 7;
+    background-color: lightgray;
+}

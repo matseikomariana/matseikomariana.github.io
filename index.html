@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+
+</head>
+
+<body>
+    <header>
+        <div class="section">
+            <div class="navbar navbar-desktop">
+                <a href="#top" class="logo"> Whoson</a>
+                <button class="navbar-toggler">
+                    <span>Menu</span>
+                </button>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contacts">Contacts</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="section home gridhome ">
+   <div class="slider whoson">
+        <img class="jpeghome" src="img/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B5.jpg"/>
+       <img class="jpeghome1" src="img/slide1.jpg"/>
+       <img class="jpeghome2" src="img/slide2.jpg"/>
+       <img class="jpeghome3" src="img/slide3.jpg"/>
+       <img class="jpeghome4" src="img/slide4.jpg"/>
+    
+        </div>
+           
+            <div class="whoson">
+             <lu> whoson</lu>
+                </div>
+        <div class="containerhome">
+     
+        </div>
+      
+    </div>
+ </div>
+    <div class="section about gridabout " id="about">
+       
+           <div class="brend"
+            <h2>Бренд who’s’on  - молодий креативний бренд, який несе в собі філософію простоти і незалежності, внутрішньої свободи, одяг спрямований на дослідження особистості, якій властиво постійно змінюватись. 
+        Багатоваріаційні дизайнерські речі, речі трансформери, в яких можна спостерігати поєднання романтизму і мінімалізму стильні речі  свільний нестандартний  крій,нестандартне  розміщення деталей , все це відповідає  сучасним тенденціям моди і творить унікальний стиль бренду.</h2></div>
+    <div class="containerabout">
+    </div>
+        </div>
+    </div>
+  
+    <div class="section portfolio gridportfolio " id="portfolio">
+        <div class="swap-on-hover">
+           <img class="swap-on-hover__jpeg1-image" src="img/1.jpg"/>
+           <img class="swap-on-hover__back-image" src="img/1back.jpg"/>
+        </div>
+             <div class="swap-on-hover1">
+           <img class="swap-on-hover__jpeg2-image" src="img/2.jpg"/>
+           <img class="swap-on-hover__back-image2" src="img/2back.jpg"/>
+        </div>
+           <div class="swap-on-hover2">
+           <img class="swap-on-hover__jpeg3-image" src="img/3.jpg"/>
+           <img class="swap-on-hover__back-image3" src="img/3back.jpg"/>
+        </div>
+          <div class="swap-on-hover3">
+           <img class="swap-on-hover__jpeg4-image" src="img/4.jpg"/>
+           <img class="swap-on-hover__back-image4" src="img/4back.jpg"/>
+        </div>
+        <div class="swap-on-hover4">
+           <img class="swap-on-hover__jpeg5-image" src="img/5.jpg"/>
+           <img class="swap-on-hover__back-image5" src="img/5back.jpg"/>
+        </div>
+          <div class="swap-on-hover5">
+           <img class="swap-on-hover__jpeg6-image" src="img/6.jpg"/>
+           <img class="swap-on-hover__back-image6" src="img/6back.jpg"/>
+        </div>
+        
+        <div class="square"> new collection</div>
+        <div class="containerportfolio">
+     
+          
+        </div>
+    </div>
+    </div>
+    <div class="section contacts gridcontacts" id="contacts">
+        <div class="containercontacts">
+            <h2>contacts</h2>
+        </div>
+   
+
+
+
+    <!-- JS -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/menuspy@1.3.0/dist/menuspy.min.js" integrity="sha256-nLsUsNbD5SyESe6GrfVY1ay1ThxDUl5FZPqwhFRCzxA=" crossorigin="anonymous"></script>
+
+    <script>
+        /* menu scroll spy */
+        $(document).ready(function() {
+            var navmenu = $('.navbar ul')[0];
+            var ms = new MenuSpy(navmenu);
+        });
+        $(document).ready(function() {
+            var mobileMaxWidth = 768,
+                lastClickTime = 0,
+                $navbar = $('.navbar'),
+                $toggler = $navbar.find('.navbar-toggler'),
+                $nav = $navbar.find('ul');
+
+            var navbarResp = function() {
+                if ($(window).width() > mobileMaxWidth)
+                    $navbar.addClass('navbar-desktop').removeClass('navbar-mobile');
+                else
+                    $navbar.addClass('navbar-mobile').removeClass('navbar-desktop');
+            };
+            var _ = navbarResp();
+            window.onresize = navbarResp;
+
+            /* uncomment to test mobile version of navbar  */
+            // $navbar.addClass('navbar-mobile').removeClass('navbar-desktop');
+
+            $toggler.click(function() {
+
+                var interval = 200;
+                var currClickTime = new Date().getTime();
+                var diff = currClickTime - lastClickTime;
+                lastClickTime = currClickTime;
+
+                if (diff < interval) {
+                    return false;
+                } else {
+                    if ($navbar.hasClass('navbar-open'))
+                        $navbar.removeClass('navbar-open');
+                    else
+                        $navbar.addClass('navbar-open');
+                }
+            });
+
+            $nav.find('a').click(function() {
+                $navbar.toggleClass('navbar-open');
+            });
+        });
+
+    </script>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="slick/slick.min.js"></script>
+ <script type="text/javascript">
+    
+      $('.slider').slick({
+
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000,
+    arrows:false,
+          
+          
+});
+     
+ 
+  </script>
+
+</body>
+
+</html>
+
+</html>
